@@ -35,7 +35,7 @@ const boardMembers: BoardMember[] = [
   {
     name: 'Rtr. Nagaraj M',
     role: 'Joint Secretary',
-    image: '/nagu.png',
+    image: '/Naga.jpg',
   },
   {
     name: 'Rtr. IPP. Harsith',
