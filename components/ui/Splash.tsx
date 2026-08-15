@@ -47,50 +47,55 @@ export default function Splash() {
             </defs>
 
             {/* Outer toothed rim */}
-            {[...Array(24)].map((_, i) => {
-              const angle = (i / 24) * Math.PI * 2
-              const cx = 100 + Math.cos(angle) * 86
-              const cy = 100 + Math.sin(angle) * 86
-              const rx = Math.cos(angle) * 10
-              const ry = Math.sin(angle) * 10
-              return (
-                <rect
-                  key={`tooth-${i}`}
-                  x={cx - 6}
-                  y={cy - 6}
-                  width={12}
-                  height={12}
-                  rx={2}
-                  ry={2}
-                  transform={`rotate(${(angle * 180) / Math.PI} ${cx} ${cy})`}
-                  fill="#ffd700"
-                />
-              )
-            })}
+            {(() => {
+              const fmt = (n: number) => n.toFixed(3)
+              return [...Array(24)].map((_, i) => {
+                const angle = (i / 24) * Math.PI * 2
+                const cx = 100 + Math.cos(angle) * 86
+                const cy = 100 + Math.sin(angle) * 86
+                const angDeg = (angle * 180) / Math.PI
+                return (
+                  <rect
+                    key={`tooth-${i}`}
+                    x={fmt(cx - 6)}
+                    y={fmt(cy - 6)}
+                    width={"12"}
+                    height={"12"}
+                    rx={"2"}
+                    ry={"2"}
+                    transform={`rotate(${fmt(angDeg)} ${fmt(cx)} ${fmt(cy)})`}
+                    fill="#ffd700"
+                  />
+                )
+              })
+            })()}
 
             {/* Outer ring */}
             <circle cx="100" cy="100" r="78" fill="none" stroke="url(#goldGrad)" strokeWidth="8" />
 
             {/* Inner spokes */}
-            {[...Array(12)].map((_, i) => {
-              const angle = (i / 12) * Math.PI * 2
-              const x1 = 100 + Math.cos(angle) * 30
-              const y1 = 100 + Math.sin(angle) * 30
-              const x2 = 100 + Math.cos(angle) * 66
-              const y2 = 100 + Math.sin(angle) * 66
-              return (
-                <line
-                  key={`spoke-${i}`}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="#ffd700"
-                  strokeWidth={3}
-                  strokeLinecap="round"
-                />
-              )
-            })}
+            {(() => {
+              const fmt = (n: number) => n.toFixed(3)
+              return [...Array(12)].map((_, i) => {
+                const angle = (i / 12) * Math.PI * 2
+                const x1 = 100 + Math.cos(angle) * 30
+                const y1 = 100 + Math.sin(angle) * 30
+                const x2 = 100 + Math.cos(angle) * 66
+                const y2 = 100 + Math.sin(angle) * 66
+                return (
+                  <line
+                    key={`spoke-${i}`}
+                    x1={fmt(x1)}
+                    y1={fmt(y1)}
+                    x2={fmt(x2)}
+                    y2={fmt(y2)}
+                    stroke="#ffd700"
+                    strokeWidth={"3"}
+                    strokeLinecap="round"
+                  />
+                )
+              })
+            })()}
 
             {/* Inner ring and hub */}
             <circle cx="100" cy="100" r="28" fill="url(#goldGrad)" stroke="#f0c000" strokeWidth={3} />
