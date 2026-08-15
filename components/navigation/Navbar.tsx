@@ -80,6 +80,13 @@ export default function Navbar() {
             
 
             {/* Desktop Navigation */}
+            {/* Brand / Logo (left) */}
+            <div className="flex items-center gap-3">
+              <Link href="/" onClick={closeDrawer} className="flex items-center gap-3">
+                <Image src="/lia.png" alt="LIA logo" width={40} height={40} className="rounded-full" />
+                <span className="text-lg font-extrabold text-yellow-300">Rotaract LIA</span>
+              </Link>
+            </div>
             <div className="hidden lg:flex items-center gap-6">
               {navItems.map((item) => (
                 <motion.a
