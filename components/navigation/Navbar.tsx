@@ -83,7 +83,7 @@ export default function Navbar() {
             {/* Brand / Logo (left) */}
             <div className="flex items-center gap-3">
               <Link href="/" onClick={closeDrawer} className="flex items-center gap-3">
-                <Image src="/lia.png" alt="LIA logo" width={40} height={40} className="rounded-full" />
+                <Image src="/lia" alt="LIA logo" width={40} height={40} className="rounded-full" />
                 <span className="text-lg font-extrabold text-yellow-300">Rotaract LIA</span>
               </Link>
             </div>
@@ -142,6 +142,14 @@ export default function Navbar() {
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className="fixed top-0 right-0 h-full w-72 z-[60] lg:hidden bg-gradient-to-b from-[#071d49] via-[#051336] to-[#020817] border-l border-amber-400/30 shadow-2xl flex flex-col pt-20 pb-8 px-6 overflow-y-auto text-yellow-300 backdrop-blur-2xl"
             >
+              {/* Mobile brand (top) */}
+              <div className="absolute left-6 top-6 flex items-center gap-3">
+                <Link href="/" onClick={closeDrawer} className="flex items-center gap-2">
+                  <Image src="/lia.png" alt="LIA logo" width={36} height={36} className="rounded-full shrink-0" />
+                  <span className="text-sm font-bold text-yellow-300">Rotaract LIA</span>
+                </Link>
+              </div>
+
               {/* Nav links */}
               <nav className="flex flex-col gap-1">
                 {navItems.map((item, i) => (
