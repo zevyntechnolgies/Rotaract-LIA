@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import Image from 'next/image'
+// use plain <img> to avoid Next/Image optimization issues in dev and ensure predictable rendering
 
 interface BoardMember {
   name: string
@@ -35,7 +35,7 @@ const boardMembers: BoardMember[] = [
   {
     name: 'Rtr. Nagaraj M',
     role: 'Joint Secretary',
-    image: '/Nagaraj.png',
+    image: '/nagaraj.png',
   },
   {
     name: 'Rtr. IPP. Harsith',
@@ -52,7 +52,7 @@ const boardMembers: BoardMember[] = [
 const MemberImage = ({ src, name }: { src: string; name: string }) => {
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
-  
+
   if (error || !src) {
     return (
       <div className="absolute inset-0 flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-2xl font-bold">
@@ -60,21 +60,20 @@ const MemberImage = ({ src, name }: { src: string; name: string }) => {
       </div>
     )
   }
-  
+
   return (
     <>
       {loading && <div className="absolute inset-0 bg-slate-300 animate-pulse" />}
-      <Image 
-        src={src} 
+      <img
+        src={src}
         alt={name}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className={`object-cover object-top transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}
+        className={`w-full h-full object-cover object-top transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}
         onLoad={() => setLoading(false)}
         onError={() => {
           setError(true)
           setLoading(false)
         }}
+        loading="lazy"
       />
     </>
   )
