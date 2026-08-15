@@ -83,7 +83,7 @@ export default function Navbar() {
             {/* Brand / Logo (left) */}
             <div className="flex items-center gap-3">
               <Link href="/" onClick={closeDrawer} className="flex items-center gap-3">
-                <Image src="/lia" alt="LIA logo" width={40} height={40} className="rounded-full" />
+                 <img src="/lia.png" alt="LIA logo" className="h-10 w-auto object-contain rounded-full shrink-0" loading="lazy" />
                 <span className="text-lg font-extrabold text-yellow-300">Rotaract LIA</span>
               </Link>
             </div>
@@ -145,7 +145,7 @@ export default function Navbar() {
               {/* Mobile brand (top) */}
               <div className="absolute left-6 top-6 flex items-center gap-3">
                 <Link href="/" onClick={closeDrawer} className="flex items-center gap-2">
-                  <Image src="/lia.png" alt="LIA logo" width={36} height={36} className="rounded-full shrink-0" />
+                  <img src="/lia.png" alt="LIA logo" className="h-9 w-auto object-contain rounded-full shrink-0" loading="lazy" />
                   <span className="text-sm font-bold text-yellow-300">Rotaract LIA</span>
                 </Link>
               </div>
