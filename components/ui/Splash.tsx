@@ -56,8 +56,16 @@ export default function Splash() {
             })}
           </svg>
 
-          {/* mayon logo */}
-          <img src="/mayon.png" alt="Mayon" className="relative w-20 h-20 object-contain" />
+          {/* central hub */}
+          <svg viewBox="0 0 100 100" className="relative w-20 h-20" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hub" x1="0%" x2="100%">
+                <stop offset="0%" stopColor="#ffd700" />
+                <stop offset="100%" stopColor="#f0c000" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="18" fill="url(#hub)" />
+          </svg>
         </div>
 
         <div className="text-center">
