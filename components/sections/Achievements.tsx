@@ -98,11 +98,11 @@ export default function Achievements() {
     <section
       id="achievements"
       ref={ref}
-      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 overflow-hidden"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#071d49] via-[#030c22] to-[#020817] overflow-hidden"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-yellow-500/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-purple-500/10 to-transparent rounded-full blur-3xl" />
+      {/* Background glow orbs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#ffd700]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#1e3a8a]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
@@ -112,13 +112,13 @@ export default function Achievements() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest">
+          <p className="text-sm font-extrabold text-[#ffd700] mb-2 tracking-widest">
             RECOGNITION
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
-            Achievements & Awards
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-[#ffd700]">
+            Achievements &amp; Awards
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-[#e0c97f] font-semibold max-w-2xl mx-auto">
             Celebrating milestones and recognitions of our dedication to service
           </p>
         </motion.div>
@@ -137,7 +137,7 @@ export default function Achievements() {
                 key={achievement.id}
                 variants={itemVariants}
                 whileHover={{ x: 10 }}
-                className="glass rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all flex gap-6 cursor-pointer group"
+                className="glossy-card rounded-xl p-6 border border-[#ffd700]/20 hover:border-[#ffd700]/50 transition-all flex gap-6 cursor-pointer group"
               >
                 {/* Icon */}
                 <div className={`flex-shrink-0 w-16 h-16 rounded-lg bg-gradient-to-br ${achievement.color} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow`}>
@@ -147,18 +147,18 @@ export default function Achievements() {
                 {/* Content */}
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                    <h3 className="text-lg font-bold text-[#ffd700]">
                       {achievement.title}
                     </h3>
-                    <span className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">
+                    <span className="text-sm font-extrabold text-[#ffd700]">
                       {achievement.year}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <p className="text-sm text-[#c8b97a] font-medium">
                     {achievement.description}
                   </p>
                   <div className="mt-3">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-slate-700 dark:text-slate-300 capitalize">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#ffd700]/10 text-[#ffd700] border border-[#ffd700]/30 capitalize">
                       {achievement.type}
                     </span>
                   </div>

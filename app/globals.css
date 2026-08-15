@@ -29,86 +29,81 @@
 }
 
 :root {
-  color-scheme: light;
-  --background: #ffffff;
-  --foreground: #0a1929;
-  --card: #f8fafc;
-  --card-foreground: #0a1929;
-  --popover: #ffffff;
-  --popover-foreground: #0a1929;
-  --primary: #2d7bce;
-  --primary-foreground: #ffffff;
-  --secondary: #1b8a6b;
+  color-scheme: dark;
+  --background: #030c22;
+  --foreground: #ffffff;
+  --card: rgba(8, 28, 64, 0.7);
+  --card-foreground: #ffffff;
+  --popover: rgba(8, 28, 64, 0.9);
+  --popover-foreground: #ffffff;
+  --primary: #030627;
+  --primary-foreground: #030c22;
+  --secondary: #0284c7;
   --secondary-foreground: #ffffff;
-  --muted: #e8eef5;
-  --muted-foreground: #64748b;
-  --accent: #d4af37;
-  --accent-foreground: #0a1929;
-  --destructive: #dc2626;
-  --border: #e2e8f0;
-  --input: #ffffff;
-  --ring: #2d7bce;
-  --chart-1: #2d7bce;
-  --chart-2: #1b8a6b;
-  --chart-3: #00bcd4;
-  --chart-4: #7b4397;
-  --chart-5: #d4af37;
+  --muted: rgba(10, 35, 80, 0.5);
+  --muted-foreground: #fef08a;
+  --accent: #ffd700;
+  --accent-foreground: #030c22;
+  --destructive: #ef4444;
+  --border: rgba(254, 240, 138, 0.25);
+  --input: rgba(8, 28, 64, 0.6);
+  --ring: #ffd700;
+  --chart-1: #ffd700;
+  --chart-2: #0284c7;
+  --chart-3: #38bdf8;
+  --chart-4: #f59e0b;
+  --chart-5: #e0f2fe;
   --radius: 0.75rem;
 }
 
 .dark {
   color-scheme: dark;
-  --background: #0a1929;
-  --foreground: #f0f4f8;
-  --card: #0d2847;
-  --card-foreground: #f0f4f8;
-  --popover: #0d2847;
-  --popover-foreground: #f0f4f8;
-  --primary: #4da6ff;
-  --primary-foreground: #0a1929;
-  --secondary: #2ec4b6;
-  --secondary-foreground: #0a1929;
-  --muted: #1e3a4c;
-  --muted-foreground: #94a3b8;
-  --accent: #d4af37;
-  --accent-foreground: #0a1929;
+  --background: #030c22;
+  --foreground: #ffffff;
+  --card: rgba(8, 28, 64, 0.7);
+  --card-foreground: #ffffff;
+  --popover: rgba(8, 28, 64, 0.9);
+  --popover-foreground: #ffffff;
+  --primary: #ffd700;
+  --primary-foreground: #030c22;
+  --secondary: #0284c7;
+  --secondary-foreground: #ffffff;
+  --muted: rgba(10, 35, 80, 0.5);
+  --muted-foreground: #fef08a;
+  --accent: #ffd700;
+  --accent-foreground: #030c22;
   --destructive: #ef4444;
-  --border: #1e3a4c;
-  --input: #0d2847;
-  --ring: #4da6ff;
-  --chart-1: #4da6ff;
-  --chart-2: #2ec4b6;
-  --chart-3: #00bcd4;
-  --chart-4: #9c27b0;
-  --chart-5: #d4af37;
+  --border: rgba(254, 240, 138, 0.25);
+  --input: rgba(8, 28, 64, 0.6);
+  --ring: #ffd700;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
     color-scheme: dark;
-    --background: #0a1929;
-    --foreground: #f0f4f8;
-    --card: #0d2847;
-    --card-foreground: #f0f4f8;
-    --popover: #0d2847;
-    --popover-foreground: #f0f4f8;
-    --primary: #4da6ff;
-    --primary-foreground: #0a1929;
-    --secondary: #2ec4b6;
-    --secondary-foreground: #0a1929;
-    --muted: #1e3a4c;
-    --muted-foreground: #94a3b8;
-    --accent: #d4af37;
-    --accent-foreground: #0a1929;
+    --background: #020611;
+    --foreground: #ffffff;
+    --card: rgba(10, 15, 30, 0.5);
+    --card-foreground: #ffffff;
+    --popover: rgba(10, 15, 30, 0.5);
+    --popover-foreground: #ffffff;
+    --primary: #0284c7;
+    --primary-foreground: #ffffff;
+    --secondary: #059669;
+    --secondary-foreground: #ffffff;
+    --muted: rgba(30, 41, 59, 0.4);
+    --muted-foreground: #e2e8f0;
+    --accent: #ffd700;
+    --accent-foreground: #020611;
     --destructive: #ef4444;
-    --border: #1e3a4c;
-    --input: #0d2847;
-    --ring: #4da6ff;
-    --chart-1: #4da6ff;
-    --chart-2: #2ec4b6;
-    --chart-3: #00bcd4;
-    --chart-4: #9c27b0;
-    --chart-5: #d4af37;
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(15, 23, 42, 0.3);
+    --ring: #ffd700;
+    --chart-1: #0284c7;
+    --chart-2: #059669;
+    --chart-3: #0d9488;
+    --chart-4: #7c3aed;
+    --chart-5: #ffd700;
   }
 }
 
@@ -213,6 +208,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
     width: 100%;
@@ -227,53 +223,40 @@
   }
   
   /* ── Light mode: aurora mesh behind sections ─────────────── */
+  /* ── Static Glossy Royal Blue & Green Gradient Background ─────────────── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: linear-gradient(
-    -45deg,
-    rgba(14, 165, 233, 0.07),
-    rgba(16, 185, 129, 0.06),
-    rgba(0, 188, 212, 0.05),
-    rgba(212, 175, 55, 0.04),
-    rgba(139, 92, 246, 0.06)
-  );
-  background-size: 400% 400%;
-  animation: peacockGradient 18s ease infinite;
-  z-index: -2;
+  background: 
+    /* Specular Light Sheen Overlay */
+    linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.12) 45%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.12) 55%, transparent 80%),
+    linear-gradient(205deg, transparent 30%, rgba(56, 189, 248, 0.15) 50%, transparent 70%),
+    /* Divine Cyan, Royal Indigo & Golden Flares */
+    radial-gradient(circle at 15% 15%, rgba(2, 132, 199, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.35) 0%, transparent 55%),
+    radial-gradient(circle at 50% 85%, rgba(212, 175, 55, 0.2) 0%, transparent 45%),
+    /* Divine Krishnan Blue Base */
+    linear-gradient(145deg, #020817 0%, #051336 35%, #0a2540 70%, #030b1e 100%);
+  z-index: -3;
   pointer-events: none;
 }
 
 body::after {
-  content: '';
-  position: fixed;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background:
-    radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.04) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(0, 188, 212, 0.03) 0%, transparent 50%);
-  animation: peacockFeather 22s ease-in-out infinite;
-  z-index: -1;
-  pointer-events: none;
+  display: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
+  color: #ffd700; /* Solar Gold */
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
 }
 
 /* ── Aurora floating blobs (AuroraBackground component) ───── */
 .aurora-root {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
+  display: none;
 }
 
 .aurora-blob {
@@ -284,46 +267,46 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
 }
 
-/* Light-mode blob colours */
+/* Premium Peacock Aurora blobs */
 .aurora-blob-1 {
   width: 600px; height: 600px;
   top: -10%; left: -5%;
-  background: radial-gradient(circle, rgba(14,165,233,0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(2,132,199,0.3) 0%, transparent 60%);
   animation: aurora-drift-1 22s ease-in-out infinite;
   opacity: 1;
 }
 .aurora-blob-2 {
   width: 700px; height: 700px;
   top: 20%; right: -10%;
-  background: radial-gradient(circle, rgba(16,185,129,0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(5,150,105,0.25) 0%, transparent 60%);
   animation: aurora-drift-2 26s ease-in-out infinite;
   opacity: 1;
 }
 .aurora-blob-3 {
   width: 500px; height: 500px;
   top: 50%; left: 25%;
-  background: radial-gradient(circle, rgba(0,188,212,0.16) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(13,148,136,0.25) 0%, transparent 60%);
   animation: aurora-drift-3 20s ease-in-out infinite;
   opacity: 1;
 }
 .aurora-blob-4 {
   width: 550px; height: 550px;
   bottom: 5%; left: -8%;
-  background: radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 60%);
   animation: aurora-drift-4 28s ease-in-out infinite;
   opacity: 1;
 }
 .aurora-blob-5 {
   width: 400px; height: 400px;
   bottom: 10%; right: 5%;
-  background: radial-gradient(circle, rgba(212,175,55,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 60%);
   animation: aurora-drift-5 24s ease-in-out infinite;
   opacity: 1;
 }
 .aurora-blob-6 {
   width: 480px; height: 480px;
   top: 35%; left: 55%;
-  background: radial-gradient(circle, rgba(20,184,166,0.13) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45,212,191,0.2) 0%, transparent 60%);
   animation: aurora-drift-6 30s ease-in-out infinite;
   opacity: 1;
 }
@@ -332,39 +315,56 @@ h1, h2, h3, h4, h5, h6 {
 .dark body::before {
   background: linear-gradient(
     -45deg,
-    rgba(77, 166, 255, 0.06),
-    rgba(46, 196, 182, 0.04),
-    rgba(0, 188, 212, 0.04),
-    rgba(212, 175, 55, 0.03),
-    rgba(156, 39, 176, 0.04)
+    rgba(2, 6, 17, 1) 0%,
+    rgba(2, 132, 199, 0.12) 20%,
+    rgba(5, 150, 105, 0.12) 50%,
+    rgba(124, 58, 237, 0.12) 80%,
+    rgba(212, 175, 55, 0.08) 100%
   );
 }
 
 .dark body::after {
-  background:
-    radial-gradient(circle at 20% 50%, rgba(77, 166, 255, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(46, 196, 182, 0.015) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(0, 188, 212, 0.015) 0%, transparent 50%);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
-/* Dark-mode blobs — richer, deeper tones */
-.dark .aurora-blob-1 { background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%); }
-.dark .aurora-blob-2 { background: radial-gradient(circle, rgba(52,211,153,0.14) 0%, transparent 70%); }
-.dark .aurora-blob-3 { background: radial-gradient(circle, rgba(34,211,238,0.14) 0%, transparent 70%); }
-.dark .aurora-blob-4 { background: radial-gradient(circle, rgba(167,139,250,0.14) 0%, transparent 70%); }
-.dark .aurora-blob-5 { background: radial-gradient(circle, rgba(251,191,36,0.10) 0%, transparent 70%); }
-.dark .aurora-blob-6 { background: radial-gradient(circle, rgba(45,212,191,0.12) 0%, transparent 70%); }
+/* Dark-mode blobs — already styled for premium dark theme */
+.dark .aurora-blob-1 { background: radial-gradient(circle, rgba(2,132,199,0.3) 0%, transparent 60%); }
+.dark .aurora-blob-2 { background: radial-gradient(circle, rgba(5,150,105,0.25) 0%, transparent 60%); }
+.dark .aurora-blob-3 { background: radial-gradient(circle, rgba(13,148,136,0.25) 0%, transparent 60%); }
+.dark .aurora-blob-4 { background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 60%); }
+.dark .aurora-blob-5 { background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 60%); }
+.dark .aurora-blob-6 { background: radial-gradient(circle, rgba(45,212,191,0.2) 0%, transparent 60%); }
 
 @layer utilities {
   .glass {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(9, 34, 72, 0.75) 0%, rgba(2, 9, 29, 0.9) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(254, 240, 138, 0.3);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.2), 0 12px 30px -5px rgba(0, 0, 0, 0.8);
+    color: #ffffff;
   }
   .glass-dark {
-    background-color: rgba(15, 23, 42, 0.5);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(6, 24, 52, 0.85) 0%, rgba(1, 6, 22, 0.95) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(254, 240, 138, 0.35);
+    box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.25), 0 14px 35px -5px rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+  }
+  .glossy-card {
+    background: linear-gradient(135deg, rgba(9, 34, 72, 0.8) 0%, rgba(2, 9, 29, 0.92) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(254, 240, 138, 0.35);
+    box-shadow: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.25), 0 15px 35px -5px rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+  }
+  .mustard-card {
+    background: linear-gradient(135deg, rgba(9, 34, 72, 0.85) 0%, rgba(2, 9, 29, 0.95) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(254, 240, 138, 0.35);
+    box-shadow: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.25), 0 15px 35px -5px rgba(0, 0, 0, 0.85);
+    color: #ffffff;
   }
   .text-gradient {
     background-clip: text;

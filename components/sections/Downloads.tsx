@@ -98,10 +98,11 @@ export default function Downloads() {
     <section
       id="downloads"
       ref={ref}
-      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 overflow-hidden"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#071d49] via-[#030c22] to-[#020817] overflow-hidden"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-full blur-3xl" />
+      {/* Background glow orbs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#ffd700]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#1e3a8a]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
@@ -111,13 +112,13 @@ export default function Downloads() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest">
+          <p className="text-sm font-extrabold text-[#ffd700] mb-2 tracking-widest">
             RESOURCES
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-[#ffd700]">
             Downloads
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-[#e0c97f] font-semibold max-w-2xl mx-auto">
             Access our important documents and resources
           </p>
         </motion.div>
@@ -136,7 +137,7 @@ export default function Downloads() {
                 key={item.id}
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
-                className="glass rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all group cursor-pointer flex flex-col"
+                className="glossy-card rounded-xl p-6 border border-[#ffd700]/20 hover:border-[#ffd700]/50 transition-all group cursor-pointer flex flex-col"
               >
                 {/* Icon */}
                 <div className={`inline-flex w-14 h-14 rounded-lg bg-gradient-to-br ${item.color} items-center justify-center mb-4 group-hover:shadow-lg transition-shadow`}>
@@ -144,30 +145,30 @@ export default function Downloads() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                <h3 className="text-lg font-bold text-[#ffd700] mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">
+                <p className="text-sm text-[#c8b97a] mb-4 flex-1 font-medium">
                   {item.description}
                 </p>
 
                 {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-4" />
+                <div className="h-px bg-gradient-to-r from-transparent via-[#ffd700]/30 to-transparent my-4" />
 
                 {/* Footer */}
                 <div className="flex items-center justify-between">
-                  <div className="flex gap-2">
-                    <span className="text-xs font-semibold px-2 py-1 rounded-full bg-white/10 text-slate-700 dark:text-slate-300">
+                  <div className="flex gap-2 items-center">
+                    <span className="text-xs font-bold px-2 py-1 rounded-full bg-[#071d49] text-[#ffd700] border border-[#ffd700]/30">
                       {item.type}
                     </span>
-                    <span className="text-xs text-slate-600 dark:text-slate-400">
+                    <span className="text-xs text-[#e0c97f] font-semibold">
                       {item.size}
                     </span>
                   </div>
                   <motion.button
                     whileHover={{ scale: 1.1, rotate: 10 }}
                     whileTap={{ scale: 0.9 }}
-                    className="p-2 rounded-lg bg-white/10 hover:bg-blue-500/20 transition-colors text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    className="p-2 rounded-lg bg-[#ffd700]/10 hover:bg-[#ffd700]/20 transition-colors text-[#ffd700] border border-[#ffd700]/30"
                   >
                     <Download size={18} />
                   </motion.button>

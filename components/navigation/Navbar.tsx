@@ -8,18 +8,23 @@ import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Board Members', href: '#board' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Achievements', href: '#achievements' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/#home' },
+  { label: 'About', href: '/#about' },
+  { label: 'Board Members', href: '/#board' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'Achievements', href: '/#achievements' },
+  { label: 'Contact', href: '/#contact' },
 ]
+
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
+  
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     setMounted(true)
@@ -39,6 +44,27 @@ export default function Navbar() {
 
   const closeDrawer = () => setIsOpen(false)
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    closeDrawer()
+
+    const targetHash = href.startsWith('/#') ? href.substring(1) : href
+
+    if (pathname === '/') {
+      // If we are already on the home page, just smooth scroll to the section
+      const element = document.querySelector(targetHash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        window.history.pushState(null, '', targetHash)
+      } else {
+        router.push(href)
+      }
+    } else {
+      // If we are on another page (like a project detail page), navigate back to home with the hash
+      router.push(href)
+    }
+  }
+
   return (
     <>
       {/* ── Navbar bar ─────────────────────────────────────── */}
@@ -46,24 +72,12 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-500 bg-white`}
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#030c22]/90 backdrop-blur-xl border-b border-amber-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.8)] text-yellow-300' : 'bg-[#030c22]/75 backdrop-blur-md border-b border-amber-400/20 text-yellow-300'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
 
-            {/* Logo */}
-            <Link href="/" className="flex items-center select-none shrink-0" onClick={closeDrawer}>
-              <motion.div whileHover={{ scale: 1.02 }} className="flex items-center">
-                <Image
-                  src="/mayon.jpeg"
-                  alt="Mayon Logo"
-                  width={1000}
-                  height={1000}
-                  className="object-contain h-14 sm:h-16 md:h-20 w-auto mix-blend-multiply dark:mix-blend-screen dark:invert"
-                  priority
-                />
-              </motion.div>
-            </Link>
+            
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-6">
@@ -71,11 +85,12 @@ export default function Navbar() {
                 <motion.a
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   whileHover={{ y: -1 }}
-                  className="px-4 py-2 text-sm font-semibold text-slate-700 hover:text-blue-600 transition-colors relative group"
+                  className="px-4 py-2 text-sm font-extrabold transition-colors relative group text-yellow-300 hover:text-amber-200"
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-500 to-emerald-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+                  <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-amber-400 to-yellow-300 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
                 </motion.a>
               ))}
             </div>
@@ -85,11 +100,11 @@ export default function Navbar() {
               id="mobile-menu-toggle"
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               onClick={() => setIsOpen((prev) => !prev)}
-              className="lg:hidden z-[61] relative p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 transition-all touch-manipulation"
+              className="lg:hidden z-[61] relative p-2.5 rounded-xl transition-all touch-manipulation bg-sky-950/80 hover:bg-sky-900 border border-yellow-400/40 text-yellow-300 backdrop-blur-md"
             >
               {isOpen
-                ? <X size={22} className="text-slate-800" />
-                : <Menu size={22} className="text-slate-800" />
+                ? <X size={22} className="text-yellow-300" />
+                : <Menu size={22} className="text-yellow-300" />
               }
             </button>
           </div>
@@ -108,7 +123,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={closeDrawer}
-              className="fixed inset-0 z-[55] bg-black/40 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-[55] bg-black/70 backdrop-blur-sm lg:hidden"
             />
 
             {/* Drawer panel */}
@@ -118,7 +133,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-72 z-[60] lg:hidden bg-white shadow-2xl flex flex-col pt-20 pb-8 px-6 overflow-y-auto"
+              className="fixed top-0 right-0 h-full w-72 z-[60] lg:hidden bg-gradient-to-b from-[#071d49] via-[#051336] to-[#020817] border-l border-amber-400/30 shadow-2xl flex flex-col pt-20 pb-8 px-6 overflow-y-auto text-yellow-300 backdrop-blur-2xl"
             >
               {/* Nav links */}
               <nav className="flex flex-col gap-1">
@@ -129,11 +144,11 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.06 }}
-                    onClick={closeDrawer}
-                    className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-semibold text-slate-800 hover:text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition-all touch-manipulation cursor-pointer select-none"
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-bold text-yellow-300 hover:text-white hover:bg-sky-900/40 active:bg-sky-900/60 transition-all touch-manipulation cursor-pointer select-none"
                     style={{ WebkitTapHighlightColor: 'transparent' }}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-blue-500 to-emerald-500 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 shrink-0" />
                     {item.label}
                   </motion.a>
                 ))}

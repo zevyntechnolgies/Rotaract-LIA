@@ -28,14 +28,14 @@ const boardMembers: BoardMember[] = [
     image: '/mahi.png',
   },
   {
-    name: 'Rtr. SujayKrishna',
+    name: 'Rtr. Tamil Selvan',
     role: 'Secretary Communication',
     image: '/tamil.png',
   },
   {
     name: 'Rtr. Nagaraj M',
     role: 'Joint Secretary',
-    image: '/Naga.jpg',
+    image: '/Nagaraj.png',
   },
   {
     name: 'Rtr. IPP. Harsith',
@@ -69,7 +69,7 @@ const MemberImage = ({ src, name }: { src: string; name: string }) => {
         alt={name}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className={`object-cover transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}
+        className={`object-cover object-top transition-opacity duration-300 ${loading ? 'opacity-0' : 'opacity-100'}`}
         onLoad={() => setLoading(false)}
         onError={() => {
           setError(true)
@@ -108,13 +108,12 @@ export default function BoardMembers() {
     <section
       id="board"
       ref={ref}
-      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 overflow-hidden"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#030c22]/90 via-[#071d49]/90 to-[#020817]/90 overflow-hidden"
     >
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-emerald-500/5 to-transparent rounded-full blur-3xl" />
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-sky-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           variants={containerVariants}
@@ -124,19 +123,19 @@ export default function BoardMembers() {
         >
           <motion.p
             variants={itemVariants}
-            className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest"
+            className="text-sm font-extrabold text-yellow-400 mb-2 tracking-widest"
           >
             LEADERSHIP
           </motion.p>
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white"
+            className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-yellow-300 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
           >
             Board Members
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto"
+            className="text-lg text-slate-100 font-medium max-w-2xl mx-auto"
           >
             Meet the visionary leaders guiding Rotaract LIA towards excellence
           </motion.p>
@@ -162,19 +161,19 @@ export default function BoardMembers() {
                 className="group cursor-pointer"
               >
                 {/* Card */}
-                <div className="glass rounded-2xl overflow-hidden backdrop-blur-xl border border-white/20 hover:border-white/40 transition-all duration-300 h-full flex flex-col">
+                <div className="glossy-card rounded-2xl overflow-hidden backdrop-blur-xl border border-yellow-400/30 hover:border-yellow-400/60 transition-all duration-300 h-full flex flex-col">
                   {/* Image Container */}
-                  <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-500 to-emerald-500">
+                  <div className="relative h-56 overflow-hidden bg-gradient-to-br from-sky-900 to-indigo-950">
                     <MemberImage src={member.image} name={member.name} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   </div>
 
                   {/* Content */}
                   <div className="p-6 flex-1 flex flex-col items-center text-center">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
+                    <h3 className="text-lg font-bold text-yellow-300 mb-1">
                       {member.name}
                     </h3>
-                    <p className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600">
+                    <p className="text-sm font-extrabold text-sky-300">
                       {member.role}
                     </p>
                   </div>
@@ -189,13 +188,13 @@ export default function BoardMembers() {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mt-12 flex justify-center"
+            className="mt-12 text-center"
           >
             <button
               onClick={() => setShowAll(!showAll)}
-              className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="px-8 py-3 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-slate-950 font-bold transition-all duration-300 shadow-lg hover:shadow-yellow-400/30 hover:-translate-y-1 cursor-pointer"
             >
-              {showAll ? 'View Less' : 'View More Members'}
+              {showAll ? 'Show Less' : 'View Full Board'}
             </button>
           </motion.div>
         )}

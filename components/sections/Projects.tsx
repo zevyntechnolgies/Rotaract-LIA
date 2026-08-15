@@ -44,11 +44,11 @@ export default function Projects() {
     <section
       id="projects"
       ref={ref}
-      className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#020817] via-[#030c22] to-[#071d49] overflow-hidden"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-500/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-full blur-3xl" />
+      {/* Background glow orbs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#ffd700]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#1e3a8a]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
@@ -60,19 +60,19 @@ export default function Projects() {
         >
           <motion.p
             variants={itemVariants}
-            className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest"
+            className="text-sm font-extrabold text-[#ffd700] mb-2 tracking-widest"
           >
-            IMPACT & INITIATIVES
+            IMPACT &amp; INITIATIVES
           </motion.p>
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white"
+            className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-[#ffd700]"
           >
             Our Projects
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto"
+            className="text-lg text-[#e0c97f] font-semibold max-w-2xl mx-auto"
           >
             Transforming communities through diverse initiatives and sustainable impact
           </motion.p>
@@ -94,10 +94,10 @@ export default function Projects() {
                 setSelectedCategory(category)
                 setShowAll(false)
               }}
-              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full font-bold transition-all duration-300 ${
                 selectedCategory === category
-                  ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white shadow-lg'
-                  : 'glass hover:bg-white/20 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300'
+                  ? 'bg-gradient-to-r from-[#ffd700] to-[#f59e0b] text-[#030c22] shadow-lg shadow-yellow-500/30'
+                  : 'bg-[#071d49]/60 hover:bg-[#0f2d6b]/60 text-[#e0c97f] font-bold border border-[#ffd700]/30 hover:border-[#ffd700]/60'
               }`}
             >
               {category}
@@ -129,7 +129,7 @@ export default function Projects() {
                     whileHover={{ y: -10 }}
                     className="h-full"
                   >
-                <div className="glass rounded-2xl overflow-hidden backdrop-blur-xl border border-white/25 dark:border-slate-800/40 hover:border-white/45 dark:hover:border-slate-700/50 transition-all duration-300 h-full flex flex-col">
+                <div className="glossy-card rounded-2xl overflow-hidden backdrop-blur-xl border border-[#ffd700]/20 hover:border-[#ffd700]/50 transition-all duration-300 h-full flex flex-col">
                   {/* Image Container */}
                   <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${project.color}`}>
                     <Image
@@ -138,9 +138,9 @@ export default function Projects() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/80 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-white/90 backdrop-blur-md text-slate-900 rounded-full p-3 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="bg-[#ffd700] text-[#030c22] rounded-full p-3 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                         <ExternalLink size={20} />
                       </div>
                     </div>
@@ -149,32 +149,32 @@ export default function Projects() {
                   {/* Content */}
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-emerald-600 px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold text-[#030c22] bg-gradient-to-r from-[#ffd700] to-[#f59e0b] px-3 py-1 rounded-full">
                         {project.category}
                       </span>
-                      <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                      <span className="text-xs font-bold text-[#ffd700]">
                         {project.date}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h3 className="text-lg font-bold text-[#ffd700] mb-2 group-hover:text-[#ffe55c] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-355 mb-4 flex-1 line-clamp-3">
+                    <p className="text-sm text-[#c8b97a] mb-4 flex-1 line-clamp-3 font-medium">
                       {project.description}
                     </p>
 
                     {/* Divider */}
-                    <div className="h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent my-4" />
+                    <div className="h-px bg-gradient-to-r from-transparent via-[#ffd700]/30 to-transparent my-4" />
 
                     {/* Footer Info */}
                     <div className="space-y-2 text-sm">
-                      <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                        <MapPin size={16} className="text-blue-600 dark:text-blue-400" />
+                      <div className="flex items-center gap-2 text-[#e0c97f] font-medium">
+                        <MapPin size={16} className="text-[#ffd700]" />
                         {project.location}
                       </div>
-                      <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
-                        <Users size={16} className="text-emerald-600 dark:text-emerald-400" />
+                      <div className="flex items-center gap-2 text-[#e0c97f] font-medium">
+                        <Users size={16} className="text-[#ffd700]" />
                         {project.beneficiaries} beneficiaries
                       </div>
                     </div>
@@ -196,9 +196,9 @@ export default function Projects() {
         >
           <button
             onClick={() => setShowAll(!showAll)}
-            className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+            className="px-8 py-3 rounded-full bg-gradient-to-r from-[#ffd700] to-[#f59e0b] hover:from-[#ffe55c] hover:to-[#fbbf24] text-[#030c22] font-bold transition-all duration-300 shadow-lg shadow-yellow-500/30 hover:shadow-xl hover:-translate-y-1 cursor-pointer"
           >
-            {showAll ? 'View Less' : 'View More Projects'}
+            {showAll ? 'Show Less' : 'View All Projects'}
           </button>
         </motion.div>
       )}

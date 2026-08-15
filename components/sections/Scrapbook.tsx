@@ -57,10 +57,11 @@ export default function Scrapbook() {
     <section
       id="scrapbook"
       ref={ref}
-      className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#020817] via-[#030c22] to-[#071d49] overflow-hidden"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl" />
+      {/* Background glow orbs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#ffd700]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-[#1e3a8a]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
@@ -70,13 +71,13 @@ export default function Scrapbook() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest">
+          <p className="text-sm font-extrabold text-[#ffd700] mb-2 tracking-widest">
             MEMORIES
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-[#ffd700]">
             Our Scrapbook
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-[#e0c97f] font-semibold max-w-2xl mx-auto mb-8">
             Flipping through memories of impact, growth, and togetherness
           </p>
 
@@ -85,7 +86,7 @@ export default function Scrapbook() {
             onClick={() => setIsModalOpen(true)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-[#ffd700] to-[#f59e0b] hover:from-[#ffe55c] hover:to-[#fbbf24] text-[#030c22] font-bold rounded-lg shadow-lg shadow-yellow-500/30 hover:shadow-xl transition-all cursor-pointer"
           >
             Open Scrapbook
           </motion.button>
@@ -99,7 +100,7 @@ export default function Scrapbook() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             onClick={() => setIsModalOpen(false)}
           >
             <motion.div
@@ -107,21 +108,21 @@ export default function Scrapbook() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative"
+              className="bg-gradient-to-b from-[#071d49] via-[#030c22] to-[#020817] text-white border border-[#ffd700]/30 rounded-2xl shadow-2xl shadow-[#ffd700]/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto relative"
             >
               {/* Close Button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-6 right-6 p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors z-10"
+                className="absolute top-6 right-6 p-2 bg-[#ffd700]/10 hover:bg-[#ffd700]/20 rounded-full transition-colors z-10 text-[#ffd700] border border-[#ffd700]/30"
               >
-                <X size={24} className="text-slate-600 dark:text-slate-400" />
+                <X size={24} />
               </motion.button>
 
               {/* Modal Content */}
               <div className="p-8">
-                <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-12 text-slate-900 dark:text-white">
+                <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-12 text-[#ffd700]">
                   Our Memory Journey
                 </h2>
 
@@ -133,7 +134,7 @@ export default function Scrapbook() {
                   className="relative"
                 >
                   {/* Timeline Line */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-emerald-500 to-purple-500 hidden lg:block" />
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#ffd700] via-[#f59e0b] to-[#ffd700]/30 hidden lg:block" />
 
                   <div className="space-y-12">
                     {memories.map((memory, idx) => (
@@ -148,37 +149,37 @@ export default function Scrapbook() {
                         <div className="hidden lg:flex flex-col items-center w-20 flex-shrink-0">
                           <motion.div
                             whileHover={{ scale: 1.2 }}
-                            className={`w-6 h-6 rounded-full bg-gradient-to-br ${memory.color} border-4 border-slate-900 dark:border-slate-50 shadow-lg`}
+                            className={`w-6 h-6 rounded-full bg-gradient-to-br ${memory.color} border-4 border-[#ffd700] shadow-lg shadow-yellow-400/30`}
                           />
                         </div>
 
                         {/* Content Card */}
                         <motion.div
                           whileHover={{ y: -10 }}
-                          className="glass rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all flex-1 group"
+                          className="glossy-card rounded-xl p-6 border border-[#ffd700]/20 hover:border-[#ffd700]/50 transition-all flex-1 group"
                         >
                           {/* Image Placeholder */}
-                          <div className={`h-48 rounded-lg bg-gradient-to-br ${memory.color} mb-4 flex items-center justify-center text-slate-600 dark:text-slate-400 text-sm font-medium`}>
+                          <div className={`h-48 rounded-lg bg-gradient-to-br ${memory.color} mb-4 flex items-center justify-center text-white text-sm font-bold`}>
                             [Memory Image]
                           </div>
 
                           {/* Content */}
-                          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                          <h3 className="text-xl font-bold text-[#ffd700] mb-3">
                             {memory.title}
                           </h3>
 
-                          <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                          <p className="text-[#c8b97a] mb-4 leading-relaxed font-medium">
                             {memory.story}
                           </p>
 
                           {/* Metadata */}
                           <div className="space-y-2">
-                            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-                              <Calendar size={16} className="text-blue-600 dark:text-blue-400" />
+                            <div className="flex items-center gap-2 text-sm text-[#e0c97f] font-semibold">
+                              <Calendar size={16} className="text-[#ffd700]" />
                               {memory.date}
                             </div>
-                            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-                              <MapPin size={16} className="text-emerald-600 dark:text-emerald-400" />
+                            <div className="flex items-center gap-2 text-sm text-[#e0c97f] font-semibold">
+                              <MapPin size={16} className="text-[#ffd700]" />
                               {memory.location}
                             </div>
                           </div>

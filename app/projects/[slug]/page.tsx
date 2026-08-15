@@ -12,21 +12,22 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton'
 
 export default function ProjectDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params)
+  const decodedSlug = decodeURIComponent(slug)
   const [activeImage, setActiveImage] = useState<string | null>(null)
 
   // Synchronous lookup — no async/useEffect needed for in-memory data
-  const project = projects.find((p) => p.slug === slug) ?? null
+  const project = projects.find((p) => p.slug === decodedSlug) ?? null
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">
+      <div className="min-h-screen bg-gradient-to-b from-[#020817] via-[#030c22] to-[#071d49] flex items-center justify-center text-[#ffd700]">
         <div className="text-center px-4">
           <div className="text-6xl mb-6">🔍</div>
           <h1 className="text-3xl font-bold mb-3">Project Not Found</h1>
-          <p className="text-slate-400 mb-8">The project you're looking for doesn't exist or may have been removed.</p>
+          <p className="text-[#e0c97f] mb-8">The project you're looking for doesn't exist or may have been removed.</p>
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-emerald-600 text-white font-semibold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#ffd700] to-[#f59e0b] text-[#030c22] font-semibold hover:opacity-90 transition-opacity"
           >
             <ArrowLeft size={16} />
             Back to Projects
@@ -45,7 +46,7 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-slate-950 text-slate-100 pt-20 pb-16 overflow-hidden">
+      <main className="min-h-screen bg-gradient-to-b from-[#020817] via-[#030c22] to-[#071d49] text-[#ffd700] pt-20 pb-16 overflow-hidden">
         {/* Decorative background blobs */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-gradient-to-tr from-emerald-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -81,7 +82,7 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                 transition={{ duration: 0.6 }}
                 className="space-y-4"
               >
-                <span className="inline-block text-xs font-bold text-white bg-gradient-to-r from-blue-600 to-emerald-600 px-4 py-1.5 rounded-full shadow-lg">
+                <span className="inline-block text-xs font-bold text-[#030c22] bg-gradient-to-r from-[#ffd700] to-[#f59e0b] px-4 py-1.5 rounded-full shadow-lg shadow-yellow-500/30">
                   {project.category}
                 </span>
                 <h1 className="text-4xl md:text-6xl font-bold font-playfair text-white text-balance drop-shadow-md">
@@ -123,10 +124,10 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                 transition={{ duration: 0.5 }}
                 className="space-y-4"
               >
-                <h2 className="text-2xl font-bold font-playfair text-white border-b border-slate-800 pb-2">
+                <h2 className="text-2xl font-bold font-playfair text-[#ffd700] border-b border-[#ffd700]/20 pb-2">
                   Project Overview
                 </h2>
-                <p className="text-slate-300 leading-relaxed text-base md:text-lg">
+                <p className="text-[#c8b97a] leading-relaxed text-base md:text-lg">
                   {project.longDescription}
                 </p>
               </motion.section>
@@ -139,14 +140,14 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                 transition={{ duration: 0.5 }}
                 className="space-y-4"
               >
-                <h2 className="text-2xl font-bold font-playfair text-white border-b border-slate-800 pb-2">
+                <h2 className="text-2xl font-bold font-playfair text-[#ffd700] border-b border-[#ffd700]/20 pb-2">
                   Key Objectives
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                   {project.objectives.map((obj, i) => (
-                    <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-slate-900/50 border border-white/5">
-                      <CheckCircle size={20} className="text-emerald-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-300 font-medium">{obj}</span>
+                    <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-[#071d49]/60 border border-[#ffd700]/10">
+                      <CheckCircle size={20} className="text-[#ffd700] flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-[#c8b97a] font-medium">{obj}</span>
                     </div>
                   ))}
                 </div>
@@ -160,20 +161,20 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                 transition={{ duration: 0.5 }}
                 className="space-y-4"
               >
-                <h2 className="text-2xl font-bold font-playfair text-white border-b border-slate-800 pb-2">
+                <h2 className="text-2xl font-bold font-playfair text-[#ffd700] border-b border-[#ffd700]/20 pb-2">
                   Execution Timeline
                 </h2>
-                <div className="relative border-l border-slate-800 ml-3.5 space-y-8 pt-4">
+                <div className="relative border-l border-[#ffd700]/20 ml-3.5 space-y-8 pt-4">
                   {project.timeline.map((step, i) => (
                     <div key={i} className="relative pl-8">
                       {/* Timeline dot icon */}
-                      <span className="absolute -left-[14px] top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 border-2 border-emerald-500 text-emerald-400">
+                      <span className="absolute -left-[14px] top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-[#030c22] border-2 border-[#ffd700] text-[#ffd700]">
                         <Clock size={12} />
                       </span>
                       <div className="space-y-1">
-                        <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">{step.date}</span>
-                        <h4 className="text-base font-bold text-white">{step.stage}</h4>
-                        <p className="text-sm text-slate-400">{step.description}</p>
+                        <span className="text-xs font-bold text-[#ffd700] uppercase tracking-widest">{step.date}</span>
+                        <h4 className="text-base font-bold text-[#ffd700]">{step.stage}</h4>
+                        <p className="text-sm text-[#c8b97a]">{step.description}</p>
                       </div>
                     </div>
                   ))}
@@ -188,7 +189,7 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                 transition={{ duration: 0.5 }}
                 className="space-y-4"
               >
-                <h2 className="text-2xl font-bold font-playfair text-white border-b border-slate-800 pb-2">
+                <h2 className="text-2xl font-bold font-playfair text-[#ffd700] border-b border-[#ffd700]/20 pb-2">
                   Project Gallery
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
@@ -220,23 +221,23 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-white/10 shadow-xl space-y-6"
+                className="p-6 rounded-2xl bg-gradient-to-br from-[#071d49] to-[#030c22] border border-[#ffd700]/20 shadow-xl shadow-yellow-500/5 space-y-6"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
+                  <div className="p-2 bg-[#ffd700]/10 rounded-lg text-[#ffd700]">
                     <Award size={22} />
                   </div>
-                  <h3 className="text-lg font-bold text-white">Project Impact</h3>
+                  <h3 className="text-lg font-bold text-[#ffd700]">Project Impact</h3>
                 </div>
                 <div className="space-y-4">
-                  <div className="text-center p-4 rounded-xl bg-slate-950/50 border border-white/5">
-                    <span className="block text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                  <div className="text-center p-4 rounded-xl bg-[#020817]/50 border border-[#ffd700]/10">
+                    <span className="block text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#ffd700] to-[#f59e0b]">
                       {project.beneficiaries}+
                     </span>
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Lives Benefited</span>
+                    <span className="text-xs font-semibold text-[#e0c97f] uppercase tracking-wider">Lives Benefited</span>
                   </div>
-                  <p className="text-sm text-slate-300 leading-relaxed italic">
-                    "{project.impact}"
+                  <p className="text-sm text-[#c8b97a] leading-relaxed italic">
+                    &ldquo;{project.impact}&rdquo;
                   </p>
                 </div>
               </motion.div>
@@ -246,9 +247,9 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="p-6 rounded-2xl bg-slate-900/50 border border-white/5 shadow-md space-y-4"
+                className="p-6 rounded-2xl bg-[#071d49]/60 border border-[#ffd700]/10 shadow-md space-y-4"
               >
-                <h3 className="text-base font-bold text-white uppercase tracking-wider">Organizing Team</h3>
+                <h3 className="text-base font-bold text-[#ffd700] uppercase tracking-wider">Organizing Team</h3>
                 <div className="space-y-4">
                   {project.organizers.map((org, i) => (
                     <div key={i} className="flex items-center gap-3">
@@ -261,14 +262,14 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                             className="object-cover"
                           />
                         ) : (
-                          <span className="text-base font-bold text-slate-400">
+                          <span className="text-base font-bold text-[#ffd700]">
                             {org.name.replace('Rtr. ', '').charAt(0)}
                           </span>
                         )}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <h4 className="text-sm font-bold text-white truncate">{org.name}</h4>
-                        <p className="text-xs text-slate-400 truncate">{org.role}</p>
+                        <h4 className="text-sm font-bold text-[#ffd700] truncate">{org.name}</h4>
+                        <p className="text-xs text-[#e0c97f] truncate">{org.role}</p>
                       </div>
                     </div>
                   ))}
@@ -283,11 +284,11 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                   viewport={{ once: true }}
                   className="space-y-4"
                 >
-                  <h3 className="text-base font-bold text-white uppercase tracking-wider">Related Projects</h3>
+                  <h3 className="text-base font-bold text-[#ffd700] uppercase tracking-wider">Related Projects</h3>
                   <div className="space-y-4">
                     {relatedProjects.map((rel) => (
                       <Link key={rel.id} href={`/projects/${rel.slug}`} className="block group">
-                        <div className="flex gap-3 p-3 rounded-xl bg-slate-900/30 hover:bg-slate-900/80 border border-white/5 transition-all">
+                        <div className="flex gap-3 p-3 rounded-xl bg-[#071d49]/40 hover:bg-[#071d49]/80 border border-[#ffd700]/10 hover:border-[#ffd700]/30 transition-all">
                           <div className="relative h-16 w-20 rounded-lg overflow-hidden flex-shrink-0">
                             <Image
                               src={rel.image}
@@ -297,10 +298,10 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                             />
                           </div>
                           <div className="flex flex-col justify-center min-w-0">
-                            <h4 className="text-sm font-bold text-slate-200 group-hover:text-blue-400 transition-colors truncate">
+                            <h4 className="text-sm font-bold text-[#e0c97f] group-hover:text-[#ffd700] transition-colors truncate">
                               {rel.title}
                             </h4>
-                            <p className="text-xs text-slate-400">{rel.date}</p>
+                            <p className="text-xs text-[#c8b97a]">{rel.date}</p>
                           </div>
                         </div>
                       </Link>

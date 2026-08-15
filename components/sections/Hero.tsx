@@ -38,44 +38,33 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 md:pt-20"
+      className="relative min-h-[calc(56.22vw+4rem)] sm:min-h-[calc(56.22vw+5rem)] w-full flex flex-col items-center justify-center overflow-hidden pt-24 md:pt-20"
     >
-      {/* Background with overlay */}
-      <div className="absolute inset-0 w-full h-full bg-slate-950">
+      <br />
+      <br />
+      {/* Background without overlay */}
+      <div className="absolute inset-x-0 bottom-0 top-16 sm:top-20">
         <Image
-          src="/image.png"
-          alt="Group Photo"
+          src="/final.png"
+          alt="theme"
           fill
           priority
-          className="object-contain md:object-cover object-center"
+          className="object-cover object-center"
         />
-        {/* Subtle overlay for text legibility */}
-        <div className="absolute inset-0 bg-slate-950/50" />
       </div>
 
-      {/* Animated background particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-72 h-72 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-full blur-3xl"
-            animate={{
-              x: [0, 100, 0],
-              y: [0, 50, 0],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: 20 + i * 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Bottom blue smudge — blends hero into the next section */}
+      <div className="absolute inset-x-0 bottom-0 h-28 sm:h-64 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(2,8,23,0.35) 30%, rgba(2,8,23,0.72) 60%, rgba(2,8,23,0.92) 80%, #020817 100%)',
+        }}
+      />
+      {/* Extra wide soft glow at the seam for a deep blue haze */}
+      <div className="absolute inset-x-0 bottom-0 h-16 sm:h-32 pointer-events-none z-10"
+        style={{
+          background: 'radial-gradient(ellipse 100% 100% at 50% 100%, rgba(7,29,73,0.55) 0%, transparent 70%)',
+        }}
+      />
 
       {/* Content */}
       <motion.div
@@ -84,47 +73,10 @@ export default function Hero() {
         animate="visible"
         className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center"
       >
-        {/* Logo */}
-        <motion.div
-          variants={itemVariants}
-          className="mb-6 flex justify-center w-full"
-        >
-          <div className="hover:scale-105 transition-transform duration-300 rounded-xl overflow-hidden shadow-md w-[240px] sm:w-[360px] md:w-[480px]">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={600}
-              height={100}
-              className="object-contain rounded-xl w-full h-auto"
-            />
-          </div>
-        </motion.div>
-
-        {/* Main Title */}
-        <motion.h1
-          variants={itemVariants}
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 text-white font-playfair leading-tight w-full"
-        >
-          ROTARACT CLUB OF{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-300 to-emerald-300">
-            LEAD INDIA AHEAD
-          </span>
-        </motion.h1>
-
-        {/* Tagline */}
-        <motion.p
-          variants={itemVariants}
-          className="text-[10px] sm:text-xs md:text-sm lg:text-base font-semibold mb-6 text-slate-200 w-full max-w-lg mx-auto leading-snug"
-        >
-          PARENTED BY ROTARY CLUB OF COIMBATORE TEXCITY
-          <br />
-          CLUB ID :90062 | GROUP 4 | ROTARY INTERNATIONAL DISTRICT 3206 | ZONE 5
-        </motion.p>
-
         {/* Stats Cards — always 4 in a row */}
         <motion.div
           variants={itemVariants}
-          className="grid grid-cols-4 gap-2 sm:gap-4 mb-10 w-full max-w-xl mx-auto"
+          className="grid grid-cols-4 gap-1 sm:gap-4 mb-10 w-full max-w-xs sm:max-w-xl mx-auto"
         >
           {[
             { label: 'Years', value: 12 },
@@ -134,13 +86,13 @@ export default function Hero() {
           ].map((stat, i) => (
             <div
               key={i}
-              className="glass rounded-lg py-3 px-1 text-center backdrop-blur-xl flex flex-col items-center justify-center"
+              className="glossy-card rounded-lg py-1.5 px-0.5 sm:py-3 sm:px-1 text-center backdrop-blur-xl flex flex-col items-center justify-center border border-yellow-200/50 shadow-lg"
             >
-              <p className="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 leading-none">
+              <p className="text-xs sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-amber-100 to-yellow-300 leading-none">
                 <AnimatedCounter value={stat.value} />
                 {i === 2 || i === 3 ? '+' : ''}
               </p>
-              <p className="text-[9px] sm:text-xs md:text-sm text-slate-300 mt-1 font-medium">
+              <p className="text-[6px] sm:text-xs md:text-sm text-amber-100 mt-0.5 font-semibold">
                 {stat.label}
               </p>
             </div>
@@ -153,8 +105,8 @@ export default function Hero() {
           transition={{ duration: 2, repeat: Infinity }}
           className="flex justify-center"
         >
-          <div className="flex flex-col items-center gap-2 text-slate-300">
-            <p className="text-sm font-medium">Scroll to explore</p>
+          <div className="flex flex-col items-center gap-2 text-yellow-300 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] font-bold">
+            <p className="text-sm font-bold">Scroll to explore</p>
             <ChevronDown size={24} />
           </div>
         </motion.div>

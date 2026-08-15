@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     name: 'Priya Sharma',
     role: 'Youth Member',
-    content: 'Being part of Rotaract LIA has been the best decision. I&apos;ve grown as a leader and made meaningful impact.',
+    content: "Being part of Rotaract LIA has been the best decision. I've grown as a leader and made meaningful impact.",
     rating: 5,
     image: '/testimonials/test-2.jpg',
     color: 'from-emerald-500 to-teal-500',
@@ -65,10 +65,11 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={ref}
-      className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#071d49] via-[#030c22] to-[#020817] overflow-hidden"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-pink-500/10 to-transparent rounded-full blur-3xl" />
+      {/* Background glow orbs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#ffd700]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-[#1e3a8a]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
@@ -78,13 +79,13 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest">
+          <p className="text-sm font-extrabold text-[#ffd700] mb-2 tracking-widest">
             VOICES
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-[#ffd700]">
             What People Say
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg text-[#e0c97f] font-semibold max-w-2xl mx-auto">
             Hear from community members and partners about our impact
           </p>
         </motion.div>
@@ -104,32 +105,32 @@ export default function Testimonials() {
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
-                <div className="glass rounded-2xl p-8 md:p-12 border border-white/20">
+                <div className="glossy-card rounded-2xl p-8 md:p-12 border border-[#ffd700]/20">
                   {/* Quote Icon */}
-                  <div className="mb-6 inline-block p-3 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-lg">
-                    <Quote size={24} className="text-white" />
+                  <div className="mb-6 inline-block p-3 bg-gradient-to-br from-[#ffd700] to-[#f59e0b] rounded-lg shadow-md shadow-yellow-500/30">
+                    <Quote size={24} className="text-[#030c22]" />
                   </div>
 
                   {/* Rating */}
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} size={18} className="fill-yellow-400 text-yellow-400" />
+                      <Star key={i} size={18} className="fill-[#ffd700] text-[#ffd700]" />
                     ))}
                   </div>
 
                   {/* Content */}
-                  <p className="text-lg text-slate-700 dark:text-slate-200 mb-8 leading-relaxed italic">
-                    "{testimonial.content}"
+                  <p className="text-lg text-[#c8b97a] mb-8 leading-relaxed italic font-medium">
+                    &ldquo;{testimonial.content}&rdquo;
                   </p>
 
                   {/* Author */}
                   <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${testimonial.color} flex-shrink-0`} />
+                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${testimonial.color} flex-shrink-0 border border-[#ffd700]/30`} />
                     <div>
-                      <p className="font-bold text-slate-900 dark:text-white">
+                      <p className="font-bold text-[#ffd700]">
                         {testimonial.name}
                       </p>
-                      <p className="text-sm text-slate-600 dark:text-slate-400">
+                      <p className="text-sm text-[#e0c97f] font-semibold">
                         {testimonial.role}
                       </p>
                     </div>

@@ -66,14 +66,14 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-950 border-t border-slate-200 dark:border-slate-800">
+    <footer className="relative bg-gradient-to-b from-[#051336] via-[#030c22] to-[#010510] border-t border-amber-400/30 text-white shadow-[0_-15px_35px_rgba(0,0,0,0.8)]">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/5 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-sky-500/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
             {/* Brand Column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -82,9 +82,9 @@ export default function Footer() {
               className="lg:col-span-1"
             >
               <div className="flex items-center gap-2 mb-4">
-                <img src="/mayon.jpeg" alt="logo" className="w-25" />
+                <img src="/mayon.jpeg" alt="logo" className="w-25 rounded-md" />
               </div>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="text-sm text-[#e0f2fe] font-medium leading-relaxed">
                 Building leaders and transforming communities through service, innovation, and unity.
               </p>
             </motion.div>
@@ -97,7 +97,7 @@ export default function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
               >
-                <h3 className="font-bold text-slate-900 dark:text-white mb-4 capitalize">
+                <h3 className="font-extrabold text-yellow-300 mb-4 capitalize">
                   {section}
                 </h3>
                 <ul className="space-y-2">
@@ -105,7 +105,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="text-sm text-[#e0f2fe] hover:text-yellow-300 font-semibold transition-colors"
                       >
                         {link.label}
                       </a>
@@ -121,29 +121,29 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <h3 className="font-bold text-slate-900 dark:text-white mb-4">Contact</h3>
+              <h3 className="font-extrabold text-yellow-300 mb-4">Contact</h3>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <Mail size={16} className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
+                <li className="flex items-start gap-3 overflow-hidden">
+                  <Mail size={16} className="text-yellow-300 mt-1 flex-shrink-0" />
                   <a
-                    href="mailto:contact@rotaractlia.org"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    href="mailto:racleadindiaahead2021@gmail.com"
+                    className="text-sm text-[#e0f2fe] hover:text-yellow-300 font-semibold transition-colors break-all min-w-0"
                   >
                     racleadindiaahead2021@gmail.com
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Phone size={16} className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
+                  <Phone size={16} className="text-yellow-300 mt-1 flex-shrink-0" />
                   <a
-                    href="tel:+1234567890"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    href="tel:+916369798451"
+                    className="text-sm text-[#e0f2fe] hover:text-yellow-300 font-semibold transition-colors"
                   >
                     +91 63697 98451
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <MapPin size={16} className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <MapPin size={16} className="text-yellow-300 mt-1 flex-shrink-0" />
+                  <p className="text-sm text-[#e0f2fe] font-semibold">
                     Coimbatore,Tamil Nadu,India
                   </p>
                 </li>
@@ -152,7 +152,7 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent my-8" />
+          <div className="h-px bg-gradient-to-r from-transparent via-yellow-400/30 to-transparent my-8" />
 
           {/* Bottom Section */}
           <motion.div
@@ -162,22 +162,22 @@ export default function Footer() {
             className="flex flex-col md:flex-row items-center justify-between gap-4"
           >
             {/* Copyright & Links */}
-            <div className="text-sm text-slate-600 dark:text-slate-400 text-center md:text-left">
+            <div className="text-sm text-yellow-200/90 font-medium text-center md:text-left">
               <p className="mb-2">
                 © 2024 Rotaract LIA. All rights reserved.
               </p>
               <div className="flex gap-4 justify-center md:justify-start">
-                <a href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href="/privacy-policy" className="hover:text-yellow-300 transition-colors">
                   Privacy Policy
                 </a>
                 <span>•</span>
-                <a href="/terms-of-service" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href="/terms-of-service" className="hover:text-yellow-300 transition-colors">
                   Terms of Service
                 </a>
               </div>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              Developed by <a href="https://www.zevyn.tech" rel="noopener noreferrer">Zevyn Technologies</a>
+            <p className="text-sm text-yellow-200/90 font-medium">
+              Developed by <a href="https://www.zevyn.tech" target="_blank" rel="noopener noreferrer" className="text-yellow-300 font-bold hover:underline">Zevyn Technologies</a>
 
             </p>
 

@@ -51,10 +51,11 @@ export default function PostersNewsletter() {
       <section
         id="posters"
         ref={ref}
-        className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 overflow-hidden"
+        className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#071d49] via-[#030c22] to-[#020817] overflow-hidden"
       >
-        {/* Background decoration */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full blur-3xl" />
+        {/* Background glow orbs */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#ffd700]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-gradient-to-tl from-[#1e3a8a]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
           {/* Header */}
@@ -64,10 +65,10 @@ export default function PostersNewsletter() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest">
+            <p className="text-sm font-extrabold text-[#ffd700] mb-2 tracking-widest">
               VISUAL SHOWCASE
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-[#ffd700]">
               Posters
             </h2>
           </motion.div>
@@ -84,10 +85,10 @@ export default function PostersNewsletter() {
                 key={cat}
                 whileHover={{ scale: 1.05 }}
                 onClick={() => setPosterCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+                className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${
                   posterCategory === cat
-                    ? 'bg-gradient-to-r from-blue-600 to-emerald-600 text-white'
-                    : 'glass text-slate-700 dark:text-slate-300'
+                    ? 'bg-gradient-to-r from-[#ffd700] to-[#f59e0b] text-[#030c22] shadow-md shadow-yellow-500/30'
+                    : 'bg-[#071d49]/60 text-[#e0c97f] border border-[#ffd700]/30 hover:border-[#ffd700]/60'
                 }`}
               >
                 {cat}
@@ -111,18 +112,18 @@ export default function PostersNewsletter() {
                 whileHover={{ scale: 1.05 }}
                 className="group cursor-pointer"
               >
-                <div className={`relative h-64 rounded-xl bg-gradient-to-br ${poster.color} overflow-hidden glass border border-white/20 hover:border-white/40 transition-all`}>
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-600 dark:text-slate-400 text-sm font-medium">
+                <div className={`relative h-64 rounded-xl bg-gradient-to-br ${poster.color} overflow-hidden glossy-card border border-[#ffd700]/20 hover:border-[#ffd700]/50 transition-all`}>
+                  <div className="absolute inset-0 flex items-center justify-center text-white text-sm font-bold">
                     [Poster Image]
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                    <h3 className="text-white font-bold">{poster.title}</h3>
-                    <p className="text-slate-300 text-sm">{poster.category}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020817]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <h3 className="text-[#ffd700] font-bold">{poster.title}</h3>
+                    <p className="text-[#e0c97f] text-sm font-semibold">{poster.category}</p>
                     <div className="flex gap-2 mt-3">
-                      <motion.button whileHover={{ scale: 1.1 }} className="p-2 rounded-lg bg-white/20 hover:bg-white/30 transition-colors text-white">
+                      <motion.button whileHover={{ scale: 1.1 }} className="p-2 rounded-lg bg-[#ffd700]/10 hover:bg-[#ffd700]/20 transition-colors text-[#ffd700] border border-[#ffd700]/30">
                         <Eye size={18} />
                       </motion.button>
-                      <motion.button whileHover={{ scale: 1.1 }} className="p-2 rounded-lg bg-white/20 hover:bg-white/30 transition-colors text-white">
+                      <motion.button whileHover={{ scale: 1.1 }} className="p-2 rounded-lg bg-[#ffd700]/10 hover:bg-[#ffd700]/20 transition-colors text-[#ffd700] border border-[#ffd700]/30">
                         <Download size={18} />
                       </motion.button>
                     </div>
@@ -137,10 +138,11 @@ export default function PostersNewsletter() {
       {/* Newsletter Section */}
       <section
         id="newsletter"
-        className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#020817] via-[#030c22] to-[#071d49] overflow-hidden"
       >
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-purple-500/10 to-transparent rounded-full blur-3xl" />
+        {/* Background glow orbs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-[#ffd700]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-[#1e3a8a]/30 to-transparent rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
           {/* Header */}
@@ -150,13 +152,13 @@ export default function PostersNewsletter() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest">
+            <p className="text-sm font-extrabold text-[#ffd700] mb-2 tracking-widest">
               PUBLICATIONS
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-[#ffd700]">
               Newsletters
             </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            <p className="text-lg text-[#e0c97f] font-semibold max-w-2xl mx-auto">
               Stay updated with our monthly newsletters
             </p>
           </motion.div>
@@ -175,30 +177,30 @@ export default function PostersNewsletter() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="glass rounded-xl overflow-hidden border border-white/20 hover:border-white/40 transition-all group"
+                className="glossy-card rounded-xl overflow-hidden border border-[#ffd700]/20 hover:border-[#ffd700]/50 transition-all group"
               >
                 {/* Cover */}
-                <div className={`h-48 bg-gradient-to-br ${nl.color} flex items-center justify-center text-slate-600 dark:text-slate-400 text-sm font-medium`}>
+                <div className={`h-48 bg-gradient-to-br ${nl.color} flex items-center justify-center text-white text-sm font-bold`}>
                   [Newsletter Cover]
                 </div>
 
                 {/* Content */}
                 <div className="p-4">
-                  <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">Issue #{nl.issue}</p>
-                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+                  <p className="text-xs font-bold text-[#ffd700] mb-2">Issue #{nl.issue}</p>
+                  <h3 className="text-lg font-bold text-[#ffd700] mb-4">
                     {nl.month} {nl.year}
                   </h3>
                   <div className="flex gap-2">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
-                      className="flex-1 px-3 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-sm font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-shadow"
+                      className="flex-1 px-3 py-2 rounded-lg bg-gradient-to-r from-[#ffd700] to-[#f59e0b] text-[#030c22] text-sm font-bold flex items-center justify-center gap-2 hover:shadow-lg shadow-yellow-500/30 transition-shadow"
                     >
                       <Eye size={16} />
                       Read
                     </motion.button>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
-                      className="px-3 py-2 rounded-lg glass border border-white/20 hover:border-white/40 text-slate-700 dark:text-slate-300 transition-colors"
+                      className="px-3 py-2 rounded-lg bg-[#ffd700]/10 border border-[#ffd700]/30 text-[#ffd700] hover:bg-[#ffd700]/20 transition-colors"
                     >
                       <Download size={16} />
                     </motion.button>

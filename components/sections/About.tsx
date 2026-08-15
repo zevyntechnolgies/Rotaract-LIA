@@ -31,38 +31,6 @@ export default function About() {
     },
   }
 
-  const coreValues = [
-    {
-      title: 'Elegance',
-      description: 'Grace and professionalism in all our endeavors',
-      color: 'from-blue-500 to-cyan-500',
-    },
-    {
-      title: 'Leadership',
-      description: 'Empowering the next generation of leaders',
-      color: 'from-emerald-500 to-teal-500',
-    },
-    {
-      title: 'Service',
-      description: 'Dedicated to serving our community with heart',
-      color: 'from-purple-500 to-pink-500',
-    },
-    {
-      title: 'Unity',
-      description: 'Stronger together, united in purpose',
-      color: 'from-indigo-500 to-blue-500',
-    },
-    {
-      title: 'Innovation',
-      description: 'Creating modern solutions for global challenges',
-      color: 'from-teal-500 to-emerald-500',
-    },
-    {
-      title: 'Professionalism',
-      description: 'Excellence in every action and commitment',
-      color: 'from-cyan-500 to-blue-500',
-    },
-  ]
 
   return (
     <section
@@ -84,19 +52,19 @@ export default function About() {
         >
           <motion.p
             variants={itemVariants}
-            className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 tracking-widest"
+            className="text-sm font-extrabold text-yellow-400 mb-2 tracking-widest"
           >
             ABOUT US
           </motion.p>
           <motion.h2
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold font-playfair mb-6 text-slate-900 dark:text-white"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold font-playfair mb-6 text-yellow-300 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
           >
             Who We Are
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto"
+            className="text-lg text-slate-100 font-medium max-w-2xl mx-auto"
           >
             Rotaract LIA stands as a beacon of service and leadership in our community, embodying the Rotary spirit through innovation and dedication.
           </motion.p>
@@ -112,21 +80,21 @@ export default function About() {
             className="space-y-6"
           >
             {/* Vision */}
-            <motion.div variants={itemVariants} className="glass rounded-xl p-6">
-              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-slate-900 dark:text-white">
+            <motion.div variants={itemVariants} className="glossy-card rounded-xl p-6 border border-yellow-400/30">
+              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-yellow-300">
                 Vision
               </h3>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-[#e0f2fe] leading-relaxed font-medium">
                 To create a world where young professionals unite to build sustainable communities, drive positive change, and become catalysts for excellence in service.
               </p>
             </motion.div>
 
             {/* Mission */}
-            <motion.div variants={itemVariants} className="glass rounded-xl p-6">
-              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-slate-900 dark:text-white">
+            <motion.div variants={itemVariants} className="glossy-card rounded-xl p-6 border border-yellow-400/30">
+              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-yellow-300">
                 Mission
               </h3>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+              <p className="text-[#e0f2fe] leading-relaxed font-medium">
                 To empower young leaders through meaningful service projects, develop professional skills, foster global connections, and contribute to community development with integrity and compassion.
               </p>
             </motion.div>
@@ -140,64 +108,31 @@ export default function About() {
             className="space-y-6"
           >
             {/* Rotary Connection */}
-            <motion.div variants={itemVariants} className="glass rounded-xl p-6">
-              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-slate-900 dark:text-white">
+            <motion.div variants={itemVariants} className="glossy-card rounded-xl p-6 border border-yellow-400/30">
+              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-yellow-300">
                 Rotary Connection
               </h3>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              <p className="text-[#e0f2fe] leading-relaxed mb-4 font-medium">
                 As members of Rotaract, we embrace the Rotary values of service above self, building stronger communities, and connecting leaders globally.
               </p>
-              <p className="text-sm text-blue-600 dark:text-blue-400 font-semibold">
+              <p className="text-sm text-yellow-300 font-bold">
                 Service Above Self • One Rotary • Integrity • Diversity & Inclusion
               </p>
             </motion.div>
 
             {/* Club History */}
-            <motion.div variants={itemVariants} className="glass rounded-xl p-6">
-              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-slate-900 dark:text-white">
+            <motion.div variants={itemVariants} className="glossy-card rounded-xl p-6 border border-yellow-400/30">
+              <h3 className="text-xl sm:text-2xl font-bold font-playfair mb-3 text-yellow-300">
                 Club History
               </h3>
-              <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                Founded in 2011, Rotaract LIA has grown into a vibrant community of passionate young professionals dedicated to making a difference through collaborative service.
+              <p className="text-[#e0f2fe] leading-relaxed font-medium">
+                Founded in 2014, Rotaract LIA has grown into a vibrant community of passionate young professionals dedicated to making a difference through collaborative service.
               </p>
             </motion.div>
           </motion.div>
         </div>
 
-        {/* Core Values */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-        >
-          <motion.h3
-            variants={itemVariants}
-            className="text-2xl sm:text-3xl font-bold font-playfair mb-10 md:mb-12 text-center text-slate-900 dark:text-white"
-          >
-            Core Values
-          </motion.h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coreValues.map((value, i) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className={`glass rounded-xl p-6 border border-white/20 hover:border-white/40 transition-all group`}
-              >
-                <div className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${value.color} mb-4 group-hover:shadow-lg transition-shadow`}>
-                  <CheckCircle2 size={24} className="text-white" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                  {value.title}
-                </h4>
-                <p className="text-sm text-slate-600 dark:text-slate-300">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )

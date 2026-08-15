@@ -12,24 +12,34 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Rotaract LIA - MAYON Theme',
-  description: 'Rotaract LIA - Serving the community with excellence, leadership, and innovation',
-  generator: 'v0.app',
+  title: 'Rotaract LIA - Building Leaders, Serving Communities',
+  description: 'Rotaract LIA - Empowering the next generation of leaders through excellence, innovation, and community service. Join us in making a global impact.',
+  keywords: ['Rotaract', 'LIA', 'Community Service', 'Youth Leadership', 'Rotary', 'Non-profit', 'Volunteering', 'Coimbatore'],
+  authors: [{ name: 'Rotaract LIA' }],
+  creator: 'Rotaract LIA',
+  publisher: 'Rotaract LIA',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   metadataBase: new URL('https://rotaractlia.org'),
   icons: {
     icon: '/favicon.svg',
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'Rotaract LIA - MAYON Theme',
-    description: 'Rotaract LIA - Serving the community with excellence, leadership, and innovation',
+    title: 'Rotaract LIA - Building Leaders, Serving Communities',
+    description: 'Rotaract LIA - Empowering the next generation of leaders through excellence, innovation, and community service.',
     type: 'website',
     url: 'https://rotaractlia.org',
+    siteName: 'Rotaract LIA',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Rotaract LIA - MAYON Theme',
-    description: 'Rotaract LIA - Serving the community with excellence, leadership, and innovation',
+    title: 'Rotaract LIA - Building Leaders, Serving Communities',
+    description: 'Rotaract LIA - Empowering the next generation of leaders through excellence, innovation, and community service.',
   },
 }
 
@@ -51,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} scroll-smooth`} suppressHydrationWarning>
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />

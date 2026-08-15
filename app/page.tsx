@@ -5,16 +5,17 @@ import BoardMembers from '@/components/sections/BoardMembers'
 import Projects from '@/components/sections/Projects'
 import Achievements from '@/components/sections/Achievements'
 import Partners from '@/components/sections/Partners'
+import Careers from '@/components/sections/Careers'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/layout/Footer'
 import WhatsAppButton from '@/components/ui/WhatsAppButton'
 
 export const metadata = {
-  title: 'Rotaract LIA - Building Leaders, Serving Communities | MAYON Theme',
-  description: 'Rotaract LIA Theme MAYON - Excellence in service, leadership, and community development. Join us in making a difference.',
-  keywords: 'Rotaract, Community Service, Youth Leadership, Service Above Self, MAYON, LIA',
+  title: 'Rotaract LIA - Building Leaders, Serving Communities',
+  description: 'Rotaract LIA - Empowering the next generation of leaders through excellence, innovation, and community service. Join us in making a difference.',
+  keywords: 'Rotaract, Community Service, Youth Leadership, Service Above Self, LIA, Coimbatore, Volunteering',
   openGraph: {
-    title: 'Rotaract LIA - MAYON Theme',
+    title: 'Rotaract LIA - Building Leaders, Serving Communities',
     description: 'Building leaders and transforming communities through service and innovation',
     type: 'website',
   },
@@ -31,6 +32,7 @@ export default function Page() {
         <Projects />
         <Achievements />
         <Partners />
+        <Careers />
         <Contact />
       </main>
       <Footer />

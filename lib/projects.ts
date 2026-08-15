@@ -19,7 +19,7 @@ export interface Project {
   longDescription: string
   location: string
   date: string
-  beneficiaries: number
+  beneficiaries: number | string
   image: string
   color: string
   gallery: string[]
