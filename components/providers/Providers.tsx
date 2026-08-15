@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import ReactLenis from 'lenis/react'
+import Splash from '@/components/ui/Splash'
 
 function LenisProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false)
@@ -22,5 +23,10 @@ function LenisProvider({ children }: { children: React.ReactNode }) {
 }
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  return <LenisProvider>{children}</LenisProvider>
+  return (
+    <>
+      <Splash />
+      <LenisProvider>{children}</LenisProvider>
+    </>
+  )
 }
